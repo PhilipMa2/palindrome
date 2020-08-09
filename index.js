@@ -28,11 +28,16 @@ function Phrase(content) {
 
   // Returns the letters in the content.
   this.letters = function letters() {
-    return (this.content.match(/[a-z]/gi) || []).join("");
+    const lettersRegEx = /[a-z]/gi;
+    return (this.content.match(lettersRegEx) || []).join("");
   }
 
   this.palindrome = function palindrome() {
-    return this.processedContent() === this.processedContent().reverse();
+    if (this.processedContent()) {
+      return this.processedContent() === this.processedContent().reverse();
+    } else {
+      return false;
+    }
   }
 
   this.louder = function louder() {
